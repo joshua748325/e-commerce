@@ -1,0 +1,139 @@
+/* item_form */
+
+#item_form{
+    background-color: #f5f5f5;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 66%;
+}
+
+#item_form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#item_form form div{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+#item_form input,
+#item_form textarea,
+#item_form select{
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    font-weight: 400;
+}
+
+#item_form div.image-field,
+#item_form div.is_sold-field{
+    flex-direction:row;
+    align-items: center;
+    flex-wrap: wrap;
+} 
+
+#item_form div.image-field label{
+    margin-right: 380px;
+}
+
+#item_form div.image-field input[type="file"]{
+    flex-basis: 65%;
+}
+
+#item_form form div.image-field label:first-child{
+    flex-basis: 100%;
+}
+
+#item_form div.image-field a{
+    font-weight: 350;
+}
+
+#item_form div.image-field br{
+    display: none;
+}
+
+#item_form form div label:first-child{
+    font-weight: 600;
+}
+
+#item_form span{
+    font-weight: 300;
+}
+
+#item_form button{
+    margin-top: 10px;
+}
+
+/* user_form */
+
+#user_form form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#user_form input{
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+}
+
+#user_form div.image-field{
+    flex-direction: row;
+    align-items: center;
+}   
+
+#user_form br{
+    display: none;
+}
+
+#user_form form label{
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#user_form span{
+    font-weight: 300;
+}
+
+#user_form button{
+    margin-top: 20px;
+}
+
+/* browse form */
+
+#browse_form form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* conversation form */
+
+#con_form form{
+    display: flex;
+    flex-direction: column;
+}
+
+#con_form form div.content-field{
+    display: flex;
+    flex-direction: column;
+}
+
+#con_form form label{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#con_form form textarea{
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+}
+

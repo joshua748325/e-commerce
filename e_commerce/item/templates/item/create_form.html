@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Add Item{% endblock %}
+
+{% block content %}
+
+<section id="item_form">
+    <h1 class="mb-6 text-3xl">Add Item</h1>
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+
+        {% for field in form %}
+            <div class="{{field.name}}-field">
+                {{field.label_tag}}
+                {{field}}
+                <span>{{field.help_text}}</span>
+            </div>
+        {% endfor %}
+            
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-100">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    
+        <button class="px-8 py-4 text-lg bg-teal-500 transition duration-300 hover:bg-teal-700 rounded sm text-white" type="submit">Add item</button>
+    </form>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    document.getElementById("id_name").setAttribute("placeholder", "Enter your item's name");
+    document.getElementById("id_price").setAttribute("placeholder", "Enter your item's price");
+    document.getElementById("id_description").setAttribute("placeholder", "Enter your item's description");
+</script>
+{% endblock js %}
+    

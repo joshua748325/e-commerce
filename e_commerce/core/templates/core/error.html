@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} Error | e commerce</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            background-color: aliceblue;
+        }
+
+        body section{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1{
+            font-size: 80px;
+        }
+
+        p{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}      
+</body>
+</html>

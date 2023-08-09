@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Conversation{% endblock title %}
+
+{% block content %}
+<section id="con_form">
+    <h1 class="mb-6 text-3xl">Conversation</h1>
+
+    <div class="space-y-6">
+        {% for message in conversation.messages.all %}
+                <div class="p-6 flex {%if message.created_by == request.user%}bg-blue-100{%else%}bg-gray-100{%endif%} rounded-lg">
+                    <div>
+                        <p class="mb-4"><strong>{{message.created_by.username}}</strong> | {{message.created_at}}</p>
+                        <p>{{message.content}}</p>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+
+    <form action="." method="post" class="mt-6">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="{{field.name}}-field">
+                {{field.label_tag}}
+                {{field}}
+                <span>{{field.help_text}}</span>
+            </div>
+        {% endfor %}
+
+        <button class="px-8 py-4 text-lg bg-teal-500 transition duration-300 hover:bg-teal-700 rounded-sm text-white" type="submit">Send</button>
+    </form>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script>
+    document.getElementById("id_content").setAttribute("placeholder", "Type you whatever you want");
+</script>
+{% endblock js %}
+    

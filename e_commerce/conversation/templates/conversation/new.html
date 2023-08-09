@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}New Conversation{% endblock title %}
+
+{% block content %}
+<section id="con_form">
+    <h1 class="mb-6 text-3xl">New Conversation</h1>
+    <form action="." method="post">
+        {% csrf_token %} 
+
+        {% for field in form %}
+            <div class="{{field.name}}-field">
+                {{field.label_tag}}
+                {{field}}
+                <span>{{field.help_text}}</span>
+            </div>
+        {% endfor %}
+            
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-100">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    
+        <button class="px-8 py-4 text-lg bg-teal-500 transition duration-300 hover:bg-teal-700 rounded-sm text-white" type="submit">Send</button>
+    </form>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script>
+    document.getElementById("id_content").setAttribute("placeholder", "Type you whatever you want");
+</script>
+{% endblock js %}    
